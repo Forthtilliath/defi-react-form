@@ -1,25 +1,60 @@
-/* Border gauche */
-.form-outline .form-control:focus ~ .form-notch .form-notch-leading {
-  border-top: 0.125rem solid #00b74a;
-  border-bottom: 0.125rem solid #00b74a;
-  border-left: 0.125rem solid #00b74a;
-}
+$color-nofocus: #ebff77;
+$color-focus: #00b74a;
 
-/* Border bas gauche */
-.form-outline .form-control:focus ~ .form-notch .form-notch-middle {
-  border-bottom: 0.125rem solid;
-  border-color: #00b74a;
-}
+.form-outline {
+  margin-top: 20px;
 
-/* Border de droite */
-.form-outline .form-control:focus ~ .form-notch .form-notch-trailing {
-  border-color: currentcolor currentcolor currentcolor #00b74a;
-  border-bottom: 0.125rem solid #00b74a;
-  border-right: 0.125rem solid #00b74a;
-  border-top: 0.125rem solid #00b74a;
-}
+  .form-control {
+    /* Border gauche */
+    & ~ .form-notch .form-notch-leading {
+      border-top: 0.125rem solid $color-nofocus;
+      border-bottom: 0.125rem solid $color-nofocus;
+      border-left: 0.125rem solid $color-nofocus;
+    }
 
-/* Label */
-.form-outline .form-control:focus ~ .form-label {
-  color: #00b74a;
+    /* Border bas gauche */
+    & ~ .form-notch .form-notch-middle {
+      border-bottom: 0.125rem solid $color-nofocus;
+      border-top: 0.125rem solid $color-nofocus;
+    }
+
+    /* Border de droite */
+    & ~ .form-notch .form-notch-trailing {
+      border-bottom: 0.125rem solid $color-nofocus;
+      border-right: 0.125rem solid $color-nofocus;
+      border-top: 0.125rem solid $color-nofocus;
+    }
+
+    /* Label */
+    & ~ .form-label {
+      color: $color-nofocus;
+    }
+
+    &:focus {
+      /* Border gauche */
+      & ~ .form-notch .form-notch-leading {
+        border-top: 0.125rem solid $color-focus;
+        border-bottom: 0.125rem solid $color-focus;
+        border-left: 0.125rem solid $color-focus;
+      }
+
+      /* Border bas gauche */
+      & ~ .form-notch .form-notch-middle {
+        border-bottom: 0.125rem solid $color-focus;
+        border-bottom: 0.125rem solid $color-focus;
+      }
+
+      /* Border de droite */
+      & ~ .form-notch .form-notch-trailing {
+        border-bottom: 0.125rem solid $color-focus;
+        border-right: 0.125rem solid $color-focus;
+        border-top: 0.125rem solid $color-focus;
+      }
+
+      /* Label */
+      & ~ .form-label {
+        color: $color-focus;
+      }
+    }
+  }
 }
