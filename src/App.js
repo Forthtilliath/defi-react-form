@@ -18,7 +18,9 @@ const Title = ({ value, style }) => {
 
 // https://mdbootstrap.com/docs/standard/forms/input-fields/
 function App() {
-  const [sexe, setSexe] = useState("a");
+  const [sexe, setSexe] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = useState("");
   const [kidney, setKidney] = useState(null);
 
   const datasSexe = [
@@ -88,10 +90,18 @@ function App() {
 
           <div className="row ">
             <div className="col-md-6">
-              <Input id="last_name" label="Entrez votre nom" />
+              <Input
+                id="last_name"
+                label="Entrez votre nom"
+                onChange={setLastname}
+              />
             </div>
             <div className="col-md-6">
-              <Input id="first_name" label="Entrez votre prénom" />
+              <Input
+                id="first_name"
+                label="Entrez votre prénom"
+                onChange={setFirstname}
+              />
             </div>
           </div>
 
@@ -186,7 +196,7 @@ function App() {
             </div>
           </div>
 
-          {sexe === 'sexe_man' && (
+          {sexe === "sexe_man" && (
             <div className="row">
               <div className="col-md-12">
                 Souhaitez-vous donner un peu de sperme ?<br />
