@@ -1,14 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MDBBtn } from "mdb-react-ui-kit";
+import { MDBValidation, MDBBtn } from "mdb-react-ui-kit";
 import Informations from "../../components/Informations/Informations";
 import Coordonnees from "../../components/Coordonnees/Coordonnees";
 
 const Formulaire = (props) => {
+
   return (
     <>
-      <div className="container">
-        <div className="row mt-3">
+      <div className="container mt-3">
+        <div className="row">
           <div className="col-md-12 text">
             Nous vous remerçions pour le don que vous vous apprêtez à faire.
             Afin de vous simplifier tout ça, soyez rassuré, nous ferons tout en
@@ -22,6 +23,12 @@ const Formulaire = (props) => {
           setSexe={props.setSexe}
           setLastname={props.setLastname}
           setFirstname={props.setFirstname}
+          addressStreet={props.setAddressStreet}
+          setAddressBp={props.setAddressBp}
+          setAddressCity={props.setAddressCity}
+          setPhoneNumber={props.setPhoneNumber}
+          phoneNumber={props.phoneNumber}
+          setEmail={props.setEmail}
         />
 
         <Informations sexe={props.sexe} />

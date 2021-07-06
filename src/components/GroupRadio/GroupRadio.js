@@ -9,6 +9,8 @@ const Radio = ({
   labelClass,
   defaultChecked,
   onChange,
+  required = false,
+  validation = ''
 }) => {
   return (
     <>
@@ -20,6 +22,8 @@ const Radio = ({
         autoComplete="off"
         defaultChecked={defaultChecked === id}
         onChange={() => onChange && onChange(id)}
+        required={required}
+        validation={validation}
       />
       <label className={`btn ${labelClass}`} htmlFor={id}>
         {label}

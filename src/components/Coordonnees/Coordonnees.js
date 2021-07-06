@@ -46,7 +46,7 @@ const Coordonnees = (props) => {
           <Input
             id="address_street"
             label="Entrez votre adresse"
-            onChange={props.setFirstname}
+            onChange={props.setAdressStreet}
           />
         </div>
       </div>
@@ -76,6 +76,7 @@ const Coordonnees = (props) => {
             label="Entrez votre téléphone"
             message="Votre téléphone sera bien entendu revendu"
             onChange={props.setPhoneNumber}
+            value={props.phoneNumber}
           />
         </div>
 
@@ -85,6 +86,7 @@ const Coordonnees = (props) => {
             label="Entrez votre courriel"
             message="Votre email aussi sera revendu au plus grand nombre"
             onChange={props.setEmail}
+            icon="@"
           />
         </div>
       </div>
