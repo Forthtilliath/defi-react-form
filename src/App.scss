@@ -8,14 +8,35 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    width: 8px;
+    background-color: grey;
+    color:red
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
 .app {
   min-height: 98.5vh;
   border: 8px solid #eee;
   margin: 5px;
-  padding: 5px;
+  padding: 5px 5px 20px 5px;
 }
 
 .h3 {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
+}
+
+.col-md-6,
+.col-md-12 {
+  margin-top: 1rem;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #5998ff;
 }

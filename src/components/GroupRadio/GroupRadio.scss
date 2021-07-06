@@ -2,7 +2,7 @@ $color-nofocus: #ebff77;
 $color-focus: #00b74a;
 
 .btn-group {
-  margin-left: 20px;
+  margin-left: 0.125rem;
 
   .btn-forth {
     border: 0.125rem solid $color-nofocus;
@@ -16,6 +16,7 @@ $color-focus: #00b74a;
   .btn-forth.active {
     border: 0.125rem solid $color-focus;
     color: $color-focus;
+    background-color: rgba($color-focus, 0.125);
     z-index: 2;
   }
 
@@ -24,7 +25,7 @@ $color-focus: #00b74a;
   }
 
   .btn-check
-    + .btn-forth:not(:checked, :focus, :hover, :active, .active, .btn-check:checked
+    + .btn-group .btn-forth:not(:checked, :focus, :hover, :active, .active, .btn-check:checked
       ~ .btn-forth) {
     border-right-color: transparent;
   }

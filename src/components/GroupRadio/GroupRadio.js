@@ -8,6 +8,7 @@ const Radio = ({
   radioClass,
   labelClass,
   defaultChecked,
+  onChange,
 }) => {
   return (
     <>
@@ -18,6 +19,7 @@ const Radio = ({
         id={id}
         autoComplete="off"
         defaultChecked={defaultChecked === id}
+        onChange={() => onChange(id)}
       />
       <label className={`btn ${labelClass}`} htmlFor={id}>
         {label}
@@ -33,7 +35,8 @@ const GroupRadio = ({
   name,
   message,
   values,
-  defaultChecked,
+    defaultChecked,
+  onChange
 }) => {
   return (
     <>
@@ -47,6 +50,7 @@ const GroupRadio = ({
             labelClass={labelClass}
             label={value.name}
             defaultChecked={defaultChecked}
+            onChange={onChange}
           />
         ))}
       </div>
