@@ -1,7 +1,7 @@
 import React from "react";
 import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
-import datasForm from "../../Datas/datasForm";
+import datasForm from "../../datas/datasForm";
 
 const Informations = ({ sexe }) => {
   const { datasKidney, datasLung, datasBasic, datasSkin, datasSperm } =
@@ -76,7 +76,7 @@ const Informations = ({ sexe }) => {
             />
           </div>
         </div>
-      )}
+          )}
     </>
   );
 };
