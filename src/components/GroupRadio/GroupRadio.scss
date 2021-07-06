@@ -1,0 +1,31 @@
+$color-nofocus: #ebff77;
+$color-focus: #00b74a;
+
+.btn-group {
+  margin-left: 20px;
+
+  .btn-forth {
+    border: 0.125rem solid $color-nofocus;
+    color: $color-nofocus;
+  }
+
+  .btn-check:checked + .btn-forth,
+  .btn-check:focus + .btn-forth,
+  .btn-forth:hover,
+  .btn-forth:active,
+  .btn-forth.active {
+    border: 0.125rem solid $color-focus;
+    color: $color-focus;
+    z-index: 2;
+  }
+
+  .btn-check:checked + .btn-forth + .btn-check + .btn-forth {
+    border-left-color: transparent;
+  }
+
+  .btn-check
+    + .btn-forth:not(:checked, :focus, :hover, :active, .active, .btn-check:checked
+      ~ .btn-forth) {
+    border-right-color: transparent;
+  }
+}

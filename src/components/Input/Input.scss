@@ -5,6 +5,8 @@ $color-focus: #00b74a;
   margin-top: 20px;
 
   .form-control {
+    color: #eee;
+
     /* Border gauche */
     & ~ .form-notch .form-notch-leading {
       border-top: 0.125rem solid $color-nofocus;
