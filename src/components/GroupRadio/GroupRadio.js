@@ -1,6 +1,8 @@
 import React from "react";
 import "./GroupRadio.scss";
 
+
+
 const Radio = ({
   id,
   name,
@@ -8,10 +10,19 @@ const Radio = ({
   radioClass,
   labelClass,
   defaultChecked,
-  onChange,
   required = false,
-  validation = ''
+  validation = "",
+  setFormValues,
+  formValues,
 }) => {
+
+  const handleChange = ({ target: { name, id } }) => {
+    setFormValues({
+      ...formValues,
+      [name]: id,
+    });
+  };
+
   return (
     <>
       <input
@@ -21,7 +32,7 @@ const Radio = ({
         id={id}
         autoComplete="off"
         defaultChecked={defaultChecked === id}
-        onChange={() => onChange && onChange(id)}
+        onChange={handleChange}
         required={required}
         validation={validation}
       />
@@ -39,8 +50,10 @@ const GroupRadio = ({
   name,
   message,
   values,
-    defaultChecked,
-  onChange
+  defaultChecked,
+  onChange,
+  setFormValues,
+  formValues,
 }) => {
   return (
     <>
@@ -54,7 +67,8 @@ const GroupRadio = ({
             labelClass={labelClass}
             label={value.name}
             defaultChecked={defaultChecked}
-            onChange={onChange}
+            setFormValues={setFormValues}
+            formValues={formValues}
           />
         ))}
       </div>

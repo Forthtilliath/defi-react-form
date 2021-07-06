@@ -2,14 +2,23 @@ import React from "react";
 import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
 import datasForm from "../../datas/datasForm";
+import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
-const Informations = ({ sexe }) => {
+const Informations = ({ formValues, setFormValues }) => {
   const { datasKidney, datasLung, datasBasic, datasSkin, datasSperm } =
     datasForm;
 
   return (
     <>
       <Title value="Vos informations sur le don" style={{ marginTop: 20 }} />
+      <MDBProgress>
+        <MDBProgressBar
+          bgColor="success"
+          width={75} /* TODO Value state */
+          valuemin={0}
+          valuemax={100}
+        />
+      </MDBProgress>
 
       <div className="row">
         <div className="col-md-12">
@@ -63,7 +72,7 @@ const Informations = ({ sexe }) => {
         </div>
       </div>
 
-      {sexe === "sexe_man" && (
+      {formValues.sexe === "sexe_man" && (
         <div className="row">
           <div className="col-md-12">
             Souhaitez-vous donner un peu de sperme ?<br />
@@ -76,7 +85,7 @@ const Informations = ({ sexe }) => {
             />
           </div>
         </div>
-          )}
+      )}
     </>
   );
 };

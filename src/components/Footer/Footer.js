@@ -15,7 +15,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Forth
+          Forth &copy; 2021
         </a>
       </div>
     </footer>

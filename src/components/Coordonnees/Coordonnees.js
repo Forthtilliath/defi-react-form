@@ -3,6 +3,7 @@ import Input from "../Input/Input";
 import GroupRadio from '../GroupRadio/GroupRadio';
 import Title from '../Title/Title';
 import datasForm from '../../datas/datasForm';
+import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
 const Coordonnees = (props) => {
     const { datasSexe } = datasForm;
@@ -10,7 +11,15 @@ const Coordonnees = (props) => {
   return (
     <>
       <Title value="Vos coordonnées" style={{ marginTop: 20 }} />
-
+      <MDBProgress>
+        <MDBProgressBar
+          bgColor="success"
+          width={75} /* TODO Value state */
+          valuemin={0}
+          valuemax={100}
+          required
+        />
+      </MDBProgress>
       <div className="row">
         <div className="col-md-12">
           Quel est votre sexe ?<br />
@@ -19,11 +28,12 @@ const Coordonnees = (props) => {
             values={datasSexe}
             defaultChecked="sexe_none"
             labelClass="btn-forth"
-            onChange={props.setSexe}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
+            required={true}
           />
         </div>
       </div>
-
       <div className="row ">
         <div className="col-md-6">
           <Input
@@ -40,7 +50,6 @@ const Coordonnees = (props) => {
           />
         </div>
       </div>
-
       <div className="row">
         <div className="col-md-12">
           <Input
@@ -50,13 +59,14 @@ const Coordonnees = (props) => {
           />
         </div>
       </div>
-
       <div className="row ">
         <div className="col-md-6">
           <Input
             id="address_bp"
             label="Entrez votre code postal"
             onChange={props.setAddressBp}
+            maxLength={5}
+            type="number"
           />
         </div>
         {/* https://apicarto.ign.fr/api/codes-postaux/communes/49000 */}
@@ -68,7 +78,6 @@ const Coordonnees = (props) => {
           />
         </div>
       </div>
-
       <div className="row ">
         <div className="col-md-6">
           <Input
@@ -77,6 +86,7 @@ const Coordonnees = (props) => {
             message="Votre téléphone sera bien entendu revendu"
             onChange={props.setPhoneNumber}
             value={props.phoneNumber}
+            maxLength={14}
           />
         </div>
 
@@ -86,7 +96,6 @@ const Coordonnees = (props) => {
             label="Entrez votre courriel"
             message="Votre email aussi sera revendu au plus grand nombre"
             onChange={props.setEmail}
-            icon="@"
           />
         </div>
       </div>

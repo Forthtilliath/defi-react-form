@@ -18,6 +18,22 @@ function App() {
   const [addressCity, setAddressCity] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
+
+  const [formValues, setFormValues] = useState({
+    sexe: "z",
+    lastname: "",
+    firstname: "",
+    addressStreet: "",
+    addressBp: "",
+    addressCity: "",
+    phoneNumber: "",
+    email: "",
+    kidney: "",
+    lung: "",
+    basic: "",
+    skin: "",
+    sperm: "",
+  });
   // const [kidney, setKidney] = useState(null);
 
 useEffect(() => {
@@ -61,6 +77,8 @@ useEffect(() => {
               setPhoneNumber={setPhoneNumber}
               setEmail={setEmail}
               verifyForm={verifyForm}
+              formValues={formValues}
+              setFormValues={setFormValues}
             />
           </Route>
           <Route path="/resume" exact>

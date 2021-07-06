@@ -1,10 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { MDBValidation, MDBBtn } from "mdb-react-ui-kit";
+import { MDBBtn } from "mdb-react-ui-kit";
 import Informations from "../../components/Informations/Informations";
 import Coordonnees from "../../components/Coordonnees/Coordonnees";
+import { useState } from "react";
 
 const Formulaire = (props) => {
+
+    const [errors, setErrors] = useState([])
+
+    const handleSubmit = () => {
+        
+    }
 
   return (
     <>
@@ -29,15 +36,21 @@ const Formulaire = (props) => {
           setPhoneNumber={props.setPhoneNumber}
           phoneNumber={props.phoneNumber}
           setEmail={props.setEmail}
+          formValues={props.formValues}
+          setFormValues={props.setFormValues}
         />
 
-        <Informations sexe={props.sexe} />
+        <Informations
+          sexe={props.sexe}
+          formValues={props.formValues}
+          setFormValues={props.setFormValues}
+        />
 
         <div className="row mt-3">
           <div className="col-md-12 text" style={{ textAlign: "right" }}>
-            <NavLink exact to="/resume">
-              <MDBBtn>Valider les informations</MDBBtn>
-            </NavLink>
+            {/* <NavLink exact to="/resume"> */}
+            <MDBBtn onClick={handleSubmit}>Valider les informations</MDBBtn>
+            {/* </NavLink> */}
           </div>
         </div>
       </div>

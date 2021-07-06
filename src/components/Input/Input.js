@@ -2,14 +2,18 @@ import React from "react";
 import { MDBInput } from "mdb-react-ui-kit";
 import "./Input.scss";
 
-const Input = ({ id, label, message, onChange, type = "text", value, icon }) => {
+const Input = ({
+  id,
+  label,
+  message,
+  onChange,
+  type = "text",
+  value,
+  maxLength,
+  required,
+}) => {
   return (
-        <>
-      {icon && (
-        <span className="input-group-text" id="inputGroupPrepend">
-          {icon}
-        </span>
-      )}
+    <>
       <MDBInput
         label={label}
         id={id}
@@ -19,6 +23,8 @@ const Input = ({ id, label, message, onChange, type = "text", value, icon }) => 
         className="input"
         value={value}
         onChange={(e) => onChange && onChange(e.target.value)}
+        maxLength={maxLength}
+        required={required}
       />
       {message && <div className="form-text">{message}</div>}
     </>
