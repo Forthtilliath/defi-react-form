@@ -53,11 +53,7 @@ function App() {
     { id: "sperm_no", name: "Non" },
   ];
 
-  const msg = () => {
-    console.log('coucou')
-  }
-
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <>

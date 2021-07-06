@@ -19,7 +19,7 @@ const Radio = ({
         id={id}
         autoComplete="off"
         defaultChecked={defaultChecked === id}
-        onChange={() => onChange(id)}
+        onChange={() => onChange && onChange(id)}
       />
       <label className={`btn ${labelClass}`} htmlFor={id}>
         {label}
