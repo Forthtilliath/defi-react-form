@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
 import datasForm from "../../datas/datasForm";
@@ -8,6 +8,23 @@ const Informations = ({ formValues, setFormValues, error }) => {
   const { datasKidney, datasLung, datasBasic, datasSkin, datasSperm } =
     datasForm;
 
+  const [progress, setProgress] = useState(0);
+
+  const calcProgress = useCallback(() => {
+  const nbInputs = formValues.sexe === 'sexe_man' ? 5 : 4;
+    let count = 0;
+    count += formValues.kidney !== "kidney_none" ? 1 : 0;
+    count += formValues.lung !== "lung_none" ? 1 : 0;
+    count += formValues.basic !== "basic_none" ? 1 : 0;
+    count += formValues.skin !== "skin_no" ? 1 : 0;
+    count += formValues.sexe === 'sexe_man' && formValues.sperm !== "sperm_no" ? 1 : 0;
+    setProgress(Math.floor((count / nbInputs) * 100));
+  }, [formValues.basic, formValues.kidney, formValues.lung, formValues.sexe, formValues.skin, formValues.sperm]);
+
+  useEffect(() => {
+    calcProgress();
+  }, [calcProgress]);
+
   return (
     <>
       <Title value="Vos informations sur le don" style={{ marginTop: 20 }} />
@@ -16,7 +33,7 @@ const Informations = ({ formValues, setFormValues, error }) => {
       <MDBProgress>
         <MDBProgressBar
           bgColor="success"
-          width={75} /* TODO Value state */
+          width={progress}
           valuemin={0}
           valuemax={100}
         />

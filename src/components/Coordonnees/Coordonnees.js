@@ -21,7 +21,16 @@ const Coordonnees = (props) => {
     count += props.formValues.phoneNumber !== "" ? 1 : 0;
     count += props.formValues.email !== "" ? 1 : 0;
     setProgress(Math.floor((count / nbInputs) * 100));
-  }, [props.formValues.addressBp, props.formValues.addressCity, props.formValues.addressStreet, props.formValues.email, props.formValues.firstName, props.formValues.lastName, props.formValues.phoneNumber, props.formValues.sexe]);
+  }, [
+    props.formValues.addressBp,
+    props.formValues.addressCity,
+    props.formValues.addressStreet,
+    props.formValues.email,
+    props.formValues.firstName,
+    props.formValues.lastName,
+    props.formValues.phoneNumber,
+    props.formValues.sexe,
+  ]);
 
   useEffect(() => {
     calcProgress();

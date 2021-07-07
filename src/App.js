@@ -10,21 +10,43 @@ import { useEffect } from "react";
 import { isEmpty } from "./components/utils";
 
 function App() {
-  const [formValues, setFormValues] = useState({
-    sexe: "sexe_man",
-    lastName: "De La Couette",
-    firstName: "Laurent",
-    addressStreet: "43 rue des Polochons",
-    addressBp: "49000",
-    addressCity: "ANGERS",
-    phoneNumber: "01 23 45 67 89",
-    email: "laurent.delacouette@angers.fr",
-    kidney: "kidney_none",
-    lung: "lung_none",
-    basic: "basic_none",
-    skin: "skin_no",
-    sperm: "sperm_no",
-  });
+  /**
+   * POUR SIMPLIFIER LES TESTS
+   */
+  const in_dev = false;
+  const initialeState = in_dev
+    ? {
+        sexe: "sexe_man",
+        lastName: "De La Couette",
+        firstName: "Laurent",
+        addressStreet: "43 rue des Polochons",
+        addressBp: "49000",
+        addressCity: "ANGERS",
+        phoneNumber: "01 23 45 67 89",
+        email: "laurent.delacouette@angers.fr",
+        kidney: "kidney_none",
+        lung: "lung_none",
+        basic: "basic_none",
+        skin: "skin_no",
+        sperm: "sperm_no",
+      }
+    : {
+        sexe: "",
+        lastName: "",
+        firstName: "",
+        addressStreet: "",
+        addressBp: "",
+        addressCity: "",
+        phoneNumber: "",
+        email: "",
+        kidney: "kidney_none",
+        lung: "lung_none",
+        basic: "basic_none",
+        skin: "skin_no",
+        sperm: "sperm_no",
+      };
+
+  const [formValues, setFormValues] = useState(initialeState);
 
   const [errors, setErrors] = useState({
     sexe: "",
