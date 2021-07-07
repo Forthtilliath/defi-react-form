@@ -3,19 +3,14 @@ import { useHistory } from "react-router";
 import { MDBBtn } from "mdb-react-ui-kit";
 import Informations from "../../components/Informations/Informations";
 import Coordonnees from "../../components/Coordonnees/Coordonnees";
-import { useState } from "react";
 
 const Formulaire = (props) => {
 
   const history = useHistory();
-  const [error, setError] = useState(false)
 
   const handleSubmit = () => {
-    if (props.verifyForm()) {
-      console.log("all is fine");
+    if (props.verifyForm(true)) {
       history.push("/resume");
-    } else {
-      setError(true)
     }
   };
 
@@ -42,9 +37,7 @@ const Formulaire = (props) => {
         <Informations
           formValues={props.formValues}
           setFormValues={props.setFormValues}
-          errors={props.errors}
-          setErrors={props.setErrors}
-          error={error}
+          errorDon={props.errorDon}
         />
 
         <div className="row mt-3">

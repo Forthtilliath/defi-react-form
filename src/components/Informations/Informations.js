@@ -4,7 +4,7 @@ import Title from "../Title/Title";
 import datasForm from "../../datas/datasForm";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
-const Informations = ({ formValues, setFormValues, error }) => {
+const Informations = ({ formValues, setFormValues, errorDon }) => {
   const { datasKidney, datasLung, datasBasic, datasSkin, datasSperm } =
     datasForm;
 
@@ -39,7 +39,7 @@ const Informations = ({ formValues, setFormValues, error }) => {
         />
       </MDBProgress>
 
-      {error && (
+      {errorDon && (
         <div style={{ marginTop: "1rem" }} className="text-danger">
           Merci de sélectionner au moins un type de don.
         </div>

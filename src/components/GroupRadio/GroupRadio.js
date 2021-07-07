@@ -13,13 +13,12 @@ const Radio = ({
   validation = "",
   setFormValues,
   formValues,
-  setProgress,
   error,
   errors,
   setErrors,
 }) => {
-  
-  const handleChange = ({ target, target: { name, id } }) => {
+
+  const handleChange = ({ target: { name, id } }) => {
     if (error && !isEmpty[id])
       setErrors({
         ...errors,

@@ -13,7 +13,7 @@ function App() {
   /**
    * POUR SIMPLIFIER LES TESTS
    */
-  const in_dev = false;
+  const in_dev = true;
   const initialeState = in_dev
     ? {
         sexe: "sexe_man",
@@ -26,7 +26,7 @@ function App() {
         email: "laurent.delacouette@angers.fr",
         kidney: "kidney_none",
         lung: "lung_none",
-        basic: "basic_none",
+        basic: "basic_blood",
         skin: "skin_no",
         sperm: "sperm_no",
       }
@@ -50,7 +50,7 @@ function App() {
 
   const reset = () => {
     setFormValues(initialeState);
-  }
+  };
 
   const [errors, setErrors] = useState({
     sexe: "",
@@ -63,6 +63,7 @@ function App() {
     email: "",
     don: "",
   });
+  const [errorDon, setErrorDon] = useState(true);
 
   useEffect(() => {
     // Retire tous les espaces, puis en ajoute un tous les 2 caractères
@@ -97,14 +98,16 @@ function App() {
     return objErrors !== {};
   };
 
-  const verifyInformations = () => {
-    return (
+  const verifyInformations = (withErrors) => {
+    let good =
       formValues.kidney !== "kidney_none" ||
       formValues.lung !== "lung_none" ||
       formValues.basic !== "basic_none" ||
       formValues.skin !== "skin_no" ||
-      (formValues.sexe === "sexe_man" && formValues.sperm !== "sperm_no")
-    );
+      (formValues.sexe === "sexe_man" && formValues.sperm !== "sperm_no");
+
+    withErrors && setErrorDon(!good);
+    return good;
   };
 
   /**
@@ -112,7 +115,7 @@ function App() {
    * @returns {Boolean} True meanses all is fine !
    */
   const verifyForm = (withErrors = false) => {
-    return verifyCoordonnees(withErrors) && verifyInformations();
+    return verifyCoordonnees(withErrors) && verifyInformations(withErrors);
   };
 
   return (
@@ -128,6 +131,7 @@ function App() {
               setFormValues={setFormValues}
               errors={errors}
               setErrors={setErrors}
+              errorDon={errorDon}
             />
           </Route>
           <Route path="/resume" exact>

@@ -85,12 +85,13 @@ const Resume = ({ verifyForm, formValues, reset }) => {
                     <div>
                       Don lié au sang :{" "}
                       {
-                        datasBasic.find((basic) => basic.id === formValues.basic)
-                          ?.name
+                        datasBasic.find(
+                          (basic) => basic.id === formValues.basic
+                        )?.name
                       }
                     </div>
                   )}
-                  {formValues.skin !== "skin_none" && (
+                  {formValues.skin !== "skin_no" && (
                     <div>
                       Don de peau :{" "}
                       {
@@ -99,12 +100,13 @@ const Resume = ({ verifyForm, formValues, reset }) => {
                       }
                     </div>
                   )}
-                  {formValues.sperm !== "sperm_none" && (
+                  {formValues.sperm !== "sperm_no" && (
                     <div>
                       Don de sperme :{" "}
                       {
-                        datasSperm.find((sperm) => sperm.id === formValues.sperm)
-                          ?.name
+                        datasSperm.find(
+                          (sperm) => sperm.id === formValues.sperm
+                        )?.name
                       }
                     </div>
                   )}

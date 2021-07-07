@@ -42,7 +42,7 @@ const Coordonnees = (props) => {
       <MDBProgress>
         <MDBProgressBar
           bgColor="success"
-          width={progress} /* TODO Value state */
+          width={progress}
           valuemin={0}
           valuemax={100}
           required
@@ -62,7 +62,6 @@ const Coordonnees = (props) => {
             errors={props.errors}
             setErrors={props.setErrors}
             required={true}
-            setProgress={setProgress}
             nbInputs={nbInputs}
           />
         </div>
