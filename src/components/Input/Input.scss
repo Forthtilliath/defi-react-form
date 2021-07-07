@@ -92,3 +92,7 @@ $color-error: #ff2b2b;
     }
   }
 }
+/* Corrige la bordure top quand y'a du contenu */
+input.error:not([value=""]) ~ .form-notch .form-notch-middle {
+  border-top: none !important;
+}
