@@ -4,7 +4,7 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import datasForm from "../../datas/datasForm";
 import { timestampParser, generateDate } from "../../components/utils";
 
-const Resume = ({ verifyForm, formValues }) => {
+const Resume = ({ verifyForm, formValues, reset }) => {
   const allIsFine = verifyForm(false);
   const dateRdv = timestampParser(generateDate());
 
@@ -120,7 +120,7 @@ const Resume = ({ verifyForm, formValues }) => {
         <div className="row">
           <div className="col-md-12 text" style={{ textAlign: "right" }}>
             <NavLink exact to="/">
-              <MDBBtn>Retourner à l'accueil</MDBBtn>
+              <MDBBtn onClick={reset}>Retourner à l'accueil</MDBBtn>
             </NavLink>
           </div>
         </div>

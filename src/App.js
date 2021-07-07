@@ -48,6 +48,10 @@ function App() {
 
   const [formValues, setFormValues] = useState(initialeState);
 
+  const reset = () => {
+    setFormValues(initialeState);
+  }
+
   const [errors, setErrors] = useState({
     sexe: "",
     lastName: "",
@@ -130,6 +134,7 @@ function App() {
             <Resume
               verifyForm={verifyForm}
               formValues={formValues}
+              reset={reset}
             />
           </Route>
           <Redirect to="/" />
