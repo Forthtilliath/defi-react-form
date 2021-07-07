@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
-import datasForm from "../../datass/datasForm";
+import datasForm from "../../datas/datasForm";
 import { timestampParser, generateDate } from "../../components/utils";
 
 const Resume = ({ verifyForm, formValues, reset }) => {

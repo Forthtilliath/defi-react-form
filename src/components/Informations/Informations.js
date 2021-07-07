@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
-import datasForm from "../../datass/datasForm";
+import datasForm from "../../datas/datasForm";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
 const Informations = ({ formValues, setFormValues, errorDon }) => {
