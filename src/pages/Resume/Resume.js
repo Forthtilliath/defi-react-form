@@ -55,15 +55,67 @@ const Resume = ({ verifyForm, formValues, setFormValues }) => {
               <div className="col-md-12 text">
                 <div>Récapitulatif des informations :</div>
                 <div className="square border border-light rounded p-3">
-                  {datasSexe.find((sexe) => sexe.id === formValues.sexe)?.name},{" "}
-                  {formValues.lastName} {formValues.firstName}
-                  <br />
-                  {formValues.addressStreet}
-                  <br />
-                  {formValues.addressBp} {formValues.addressCity}
-                  <br />
-                  {formValues.phoneNumber} {formValues.email}
+                  <div>
+                    {
+                      datasSexe.find((sexe) => sexe.id === formValues.sexe)
+                        ?.name
+                    }
+                    , {formValues.lastName} {formValues.firstName}
+                  </div>
+                  <div>{formValues.addressStreet}</div>
+                  <div>
+                    {formValues.addressBp} {formValues.addressCity}
+                  </div>
+                  <div>
+                    {formValues.phoneNumber} {formValues.email}
+                  </div>
                   <hr />
+                  {formValues.kidney !== "kidney_none" && (
+                    <div>
+                      Don d'un rein :{" "}
+                      {
+                        datasKidney.find(
+                          (kidney) => kidney.id === formValues.kidney
+                        )?.name
+                      }
+                    </div>
+                  )}
+                  {formValues.lung !== "lung_none" && (
+                    <div>
+                      Don d'un poumon :{" "}
+                      {
+                        datasLung.find((lung) => lung.id === formValues.lung)
+                          ?.name
+                      }
+                    </div>
+                  )}
+                  {formValues.basic !== "basic_none" && (
+                    <div>
+                      Don lié au sang :{" "}
+                      {
+                        datasBasic.find((basic) => basic.id === formValues.basic)
+                          ?.name
+                      }
+                    </div>
+                  )}
+                  {formValues.skin !== "skin_none" && (
+                    <div>
+                      Don de peau :{" "}
+                      {
+                        datasSkin.find((skin) => skin.id === formValues.skin)
+                          ?.name
+                      }
+                    </div>
+                  )}
+                  {formValues.sperm !== "sperm_none" && (
+                    <div>
+                      Don de sperme :{" "}
+                      {
+                        datasSperm.find((sperm) => sperm.id === formValues.sperm)
+                          ?.name
+                      }
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
