@@ -12,14 +12,14 @@ import { isEmpty } from "./components/utils";
 // https://mdbootstrap.com/docs/standard/forms/input-fields/
 function App() {
   const [formValues, setFormValues] = useState({
-    sexe: "",
-    lastName: "",
-    firstName: "",
-    addressStreet: "",
-    addressBp: "",
-    addressCity: "",
-    phoneNumber: "",
-    email: "",
+    sexe: "sexe_man",
+    lastName: "De La Couette",
+    firstName: "Laurent",
+    addressStreet: "43 rue des tulipes",
+    addressBp: "49000",
+    addressCity: "ANGERS",
+    phoneNumber: "01 23 45 67 89",
+    email: "laurent.delacouette@angers.fr",
     kidney: "",
     lung: "",
     basic: "",
@@ -51,10 +51,9 @@ function App() {
     setFormValues({ ...formValues, phoneNumber: temp });
   }, [formValues.phoneNumber]);
 
-  //const isEmpty = (value) => value === "" || value.length === 0;
-
-  const verifyCoordonnees = () => {
+  const verifyCoordonnees = (withErrors) => {
     const objErrors = {};
+
     if (isEmpty(formValues.sexe))
       objErrors.sexe = "Merci de sélectionner un sexe";
     if (isEmpty(formValues.lastName))
@@ -72,12 +71,16 @@ function App() {
     if (isEmpty(formValues.email))
       objErrors.email = "Merci de saisir votre email";
 
-    setErrors({ ...objErrors });
-    return objErrors === {};
+    withErrors && setErrors({ ...objErrors });
+    return objErrors !== {};
   };
 
-  const verifyForm = () => {
-    return verifyCoordonnees();
+  /**
+   * 
+   * @returns {Boolean} True meanses all is fine !
+   */
+  const verifyForm = (withErrors = false) => {
+    return verifyCoordonnees(withErrors);
   };
 
   return (

@@ -37,6 +37,7 @@ const Coordonnees = (props) => {
           <GroupRadio
             name="sexe"
             values={datasSexe}
+            defaultChecked={props.formValues.sexe}
             labelClass="btn-forth"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
@@ -53,10 +54,11 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="lastName"
+            value={props.formValues.lastName}
             label="Entrez votre nom"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.lastName}
             errors={props.errors}
             setErrors={props.setErrors}
           />
@@ -64,10 +66,11 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="firstName"
+            value={props.formValues.firstName}
             label="Entrez votre prénom"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.firstName}
             errors={props.errors}
             setErrors={props.setErrors}
           />
@@ -77,10 +80,11 @@ const Coordonnees = (props) => {
         <div className="col-md-12">
           <Input
             id="addressStreet"
+            value={props.formValues.addressStreet}
             label="Entrez votre adresse"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.addressStreet}
             errors={props.errors}
             setErrors={props.setErrors}
           />
@@ -90,10 +94,11 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="addressBp"
+            value={props.formValues.addressBp}
             label="Entrez votre code postal"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.addressBp}
             errors={props.errors}
             setErrors={props.setErrors}
             maxLength={5}
@@ -104,10 +109,11 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="addressCity"
+            value={props.formValues.addressCity}
             label="Entrez votre ville"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.addressCity}
             errors={props.errors}
             setErrors={props.setErrors}
           />
@@ -117,13 +123,13 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="phoneNumber"
+            value={props.formValues.phoneNumber}
             label="Entrez votre téléphone"
             message="Votre téléphone sera bien entendu revendu"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            value={props.formValues.phoneNumber}
             maxLength={14}
-            error={props.errors.sexe}
+            error={props.errors.phoneNumber}
             errors={props.errors}
             setErrors={props.setErrors}
           />
@@ -132,11 +138,12 @@ const Coordonnees = (props) => {
         <div className="col-md-6">
           <Input
             id="email"
+            value={props.formValues.email}
             label="Entrez votre courriel"
             message="Votre email aussi sera revendu au plus grand nombre"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
-            error={props.errors.sexe}
+            error={props.errors.email}
             errors={props.errors}
             setErrors={props.setErrors}
           />

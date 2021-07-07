@@ -4,15 +4,19 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import datasForm from "../../datas/datasForm";
 import { useEffect } from "react";
 
-const Resume = (props) => {
-  const history = useHistory();
-  const allIsFine = props.verifyForm();
+const Resume = ({
+  verifyForm,
+  formValues,
+  setFormValues,
+}) => {
+  // const history = useHistory();
+  const allIsFine = verifyForm(false);
 
-  useEffect(() => {
-    if (!allIsFine) {
-      // history.push("/");
-    }
-  }, [allIsFine, history, props]);
+  // useEffect(() => {
+  //   if (!allIsFine) {
+  //     // history.push("/");
+  //   }
+  // }, [allIsFine, history, props]);
 
   const {
     datasSexe,
@@ -30,16 +34,16 @@ const Resume = (props) => {
             <div className="col-md-12 text">
               <div>Récapitulatif des informations :</div>
               <div className="square border border-light rounded p-3">
-                {datasSexe.find((sexe) => sexe.id === props.sexe)?.name},{" "}
-                {props.lastname} {props.firstname}
+                {datasSexe.find((sexe) => sexe.id === formValues.sexe)?.name},{" "}
+                {formValues.lastname} {formValues.firstname}
                 <br />
-                {props.addressStreet}
+                {formValues.addressStreet}
                 <br />
-                {props.addressBp}
-                {props.addressCity}
+                {formValues.addressBp}
+                {formValues.addressCity}
                 <br />
-                {props.phoneNumber}
-                {props.email}
+                {formValues.phoneNumber}
+                {formValues.email}
                 <hr />
               </div>
             </div>
