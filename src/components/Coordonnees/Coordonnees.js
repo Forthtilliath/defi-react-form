@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 import Input from "../Input/Input";
-import GroupRadio from '../GroupRadio/GroupRadio';
-import Title from '../Title/Title';
-import datasForm from '../../datas/datasForm';
+import GroupRadio from "../GroupRadio/GroupRadio";
+import Title from "../Title/Title";
+import datasForm from "../../datas/datasForm";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
 const Coordonnees = (props) => {
@@ -10,14 +10,22 @@ const Coordonnees = (props) => {
   const [progress, setProgress] = useState(0);
   const nbInputs = 8;
 
-  const calcProgress = () => {
-
-  }
+  const calcProgress = useCallback(() => {
+    let count = 0;
+    count += props.formValues.sexe !== "" ? 1 : 0;
+    count += props.formValues.lastName !== "" ? 1 : 0;
+    count += props.formValues.firstName !== "" ? 1 : 0;
+    count += props.formValues.addressStreet !== "" ? 1 : 0;
+    count += props.formValues.addressBp !== "" ? 1 : 0;
+    count += props.formValues.addressCity !== "" ? 1 : 0;
+    count += props.formValues.phoneNumber !== "" ? 1 : 0;
+    count += props.formValues.email !== "" ? 1 : 0;
+    setProgress(Math.floor((count / nbInputs) * 100));
+  }, [props.formValues.addressBp, props.formValues.addressCity, props.formValues.addressStreet, props.formValues.email, props.formValues.firstName, props.formValues.lastName, props.formValues.phoneNumber, props.formValues.sexe]);
 
   useEffect(() => {
-
-  }, []);
-
+    calcProgress();
+  }, [calcProgress]);
 
   return (
     <>

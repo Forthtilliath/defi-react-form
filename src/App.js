@@ -9,7 +9,6 @@ import Resume from "./pages/Resume/Resume";
 import { useEffect } from "react";
 import { isEmpty } from "./components/utils";
 
-// https://mdbootstrap.com/docs/standard/forms/input-fields/
 function App() {
   const [formValues, setFormValues] = useState({
     sexe: "sexe_man",
@@ -109,7 +108,6 @@ function App() {
             <Resume
               verifyForm={verifyForm}
               formValues={formValues}
-              setFormValues={setFormValues}
             />
           </Route>
           <Redirect to="/" />

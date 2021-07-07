@@ -1,19 +1,11 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
 import datasForm from "../../datas/datasForm";
-import { useEffect } from "react";
 import { timestampParser, generateDate } from "../../components/utils";
 
-const Resume = ({ verifyForm, formValues, setFormValues }) => {
-  // const history = useHistory();
+const Resume = ({ verifyForm, formValues }) => {
   const allIsFine = verifyForm(false);
-
-  // useEffect(() => {
-  //   if (!allIsFine) {
-  //     // history.push("/");
-  //   }
-  // }, [allIsFine, history, props]);
   const dateRdv = timestampParser(generateDate());
 
   const {
