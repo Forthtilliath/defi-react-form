@@ -15,16 +15,16 @@ function App() {
     sexe: "sexe_man",
     lastName: "De La Couette",
     firstName: "Laurent",
-    addressStreet: "43 rue des tulipes",
+    addressStreet: "43 rue des Polochons",
     addressBp: "49000",
     addressCity: "ANGERS",
     phoneNumber: "01 23 45 67 89",
     email: "laurent.delacouette@angers.fr",
-    kidney: "",
-    lung: "",
-    basic: "",
-    skin: "",
-    sperm: "",
+    kidney: "kidney_none",
+    lung: "lung_none",
+    basic: "basic_none",
+    skin: "skin_no",
+    sperm: "sperm_no",
   });
 
   const [errors, setErrors] = useState({
@@ -36,11 +36,7 @@ function App() {
     addressCity: "",
     phoneNumber: "",
     email: "",
-    kidney: "",
-    lung: "",
-    basic: "",
-    skin: "",
-    sperm: "",
+    don: "",
   });
 
   useEffect(() => {
@@ -49,6 +45,7 @@ function App() {
       .replaceAll(" ", "")
       .replace(/(.{2})(?=.)/g, "$1 ");
     setFormValues({ ...formValues, phoneNumber: temp });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formValues.phoneNumber]);
 
   const verifyCoordonnees = (withErrors) => {
@@ -75,12 +72,22 @@ function App() {
     return objErrors !== {};
   };
 
+  const verifyInformations = () => {
+    return (
+      formValues.kidney !== "kidney_none" ||
+      formValues.lung !== "lung_none" ||
+      formValues.basic !== "basic_none" ||
+      formValues.skin !== "skin_no" ||
+      (formValues.sexe === "sexe_man" && formValues.sperm !== "sperm_no")
+    );
+  };
+
   /**
-   * 
+   *
    * @returns {Boolean} True meanses all is fine !
    */
   const verifyForm = (withErrors = false) => {
-    return verifyCoordonnees(withErrors);
+    return verifyCoordonnees(withErrors) && verifyInformations();
   };
 
   return (
