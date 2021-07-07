@@ -1,7 +1,6 @@
 import React from "react";
 import "./GroupRadio.scss";
-
-
+import { isEmpty } from "../utils";
 
 const Radio = ({
   id,
@@ -14,9 +13,17 @@ const Radio = ({
   validation = "",
   setFormValues,
   formValues,
+  setProgress,
+  error,
+  errors,
+  setErrors,
 }) => {
-
-  const handleChange = ({ target: { name, id } }) => {
+  const handleChange = ({ target, target: { name, id } }) => {
+    if (error && !isEmpty[id])
+      setErrors({
+        ...errors,
+        [name]: '',
+      });
     setFormValues({
       ...formValues,
       [name]: id,
@@ -53,10 +60,14 @@ const GroupRadio = ({
   defaultChecked,
   setFormValues,
   formValues,
+  setProgress,
+  error,
+  errors,
+  setErrors,
 }) => {
   return (
     <>
-      <div className={`btn-group ${groupClass}`}>
+      <div className={`btn-group ${groupClass} ${error && "error"}`}>
         {values.map((value) => (
           <Radio
             key={value.id}
@@ -68,9 +79,14 @@ const GroupRadio = ({
             defaultChecked={defaultChecked}
             setFormValues={setFormValues}
             formValues={formValues}
+            setProgress={setProgress}
+            errors={errors}
+            error={error}
+            setErrors={setErrors}
           />
         ))}
       </div>
+      {error && <div className="form-text text-danger">{error}</div>}
       {message && <div className="form-text">{message}</div>}
     </>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from "../Input/Input";
 import GroupRadio from '../GroupRadio/GroupRadio';
 import Title from '../Title/Title';
@@ -6,7 +6,18 @@ import datasForm from '../../datas/datasForm';
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
 
 const Coordonnees = (props) => {
-    const { datasSexe } = datasForm;
+  const { datasSexe } = datasForm;
+  const [progress, setProgress] = useState(0);
+  const nbInputs = 8;
+
+  const calcProgress = () => {
+
+  }
+
+  useEffect(() => {
+
+  }, []);
+
 
   return (
     <>
@@ -14,7 +25,7 @@ const Coordonnees = (props) => {
       <MDBProgress>
         <MDBProgressBar
           bgColor="success"
-          width={75} /* TODO Value state */
+          width={progress} /* TODO Value state */
           valuemin={0}
           valuemax={100}
           required
@@ -29,7 +40,12 @@ const Coordonnees = (props) => {
             labelClass="btn-forth"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
             required={true}
+            setProgress={setProgress}
+            nbInputs={nbInputs}
           />
         </div>
       </div>

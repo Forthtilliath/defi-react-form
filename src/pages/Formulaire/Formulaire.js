@@ -7,7 +7,7 @@ import Coordonnees from "../../components/Coordonnees/Coordonnees";
 const Formulaire = (props) => {
 
     const handleSubmit = () => {
-        
+      props.verifyForm();
     }
 
   return (
@@ -26,6 +26,8 @@ const Formulaire = (props) => {
         <Coordonnees
           formValues={props.formValues}
           setFormValues={props.setFormValues}
+          errors={props.errors}
+          setErrors={props.setErrors}
         />
 
         <Informations
