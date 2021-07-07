@@ -6,12 +6,22 @@ const Input = ({
   id,
   label,
   message,
-  onChange,
   type = "text",
   value,
   maxLength,
   required,
+  setFormValues,
+  formValues,
 }) => {
+
+  const handleChange = ({ target: { name, value } }) => {
+    // console.log(name,value);
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <MDBInput
@@ -22,7 +32,7 @@ const Input = ({
         size="lg"
         className="input"
         value={value}
-        onChange={(e) => onChange && onChange(e.target.value)}
+        onChange={handleChange}
         maxLength={maxLength}
         required={required}
       />

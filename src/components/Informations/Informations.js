@@ -29,6 +29,8 @@ const Informations = ({ formValues, setFormValues }) => {
             defaultChecked="kidney_none"
             labelClass="btn-forth"
             message="Vous avez besoin d'un seul rein, donnez nous l'autre !"
+            setFormValues={setFormValues}
+            formValues={formValues}
           />
         </div>
       </div>
@@ -42,6 +44,8 @@ const Informations = ({ formValues, setFormValues }) => {
             defaultChecked="lung_none"
             labelClass="btn-forth"
             message="Vous avez aussi besoin d'un seul poumon, donnez nous l'autre !"
+            setFormValues={setFormValues}
+            formValues={formValues}
           />
         </div>
       </div>
@@ -55,6 +59,8 @@ const Informations = ({ formValues, setFormValues }) => {
             defaultChecked="basic_none"
             labelClass="btn-forth"
             message="Nous sommes actuellement en gros manque de donneur de sang !"
+            setFormValues={setFormValues}
+            formValues={formValues}
           />
         </div>
       </div>
@@ -68,6 +74,8 @@ const Informations = ({ formValues, setFormValues }) => {
             defaultChecked="skin_no"
             labelClass="btn-forth"
             message="Ce n'est qu'un peu de peau, ca repoussera !"
+            setFormValues={setFormValues}
+            formValues={formValues}
           />
         </div>
       </div>
@@ -82,6 +90,8 @@ const Informations = ({ formValues, setFormValues }) => {
               defaultChecked="sperm_no"
               labelClass="btn-forth"
               message="Aidez d'autres couples à devenir parents !"
+              setFormValues={setFormValues}
+              formValues={formValues}
             />
           </div>
         </div>

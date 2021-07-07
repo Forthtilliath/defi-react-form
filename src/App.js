@@ -10,19 +10,10 @@ import { useEffect } from "react";
 
 // https://mdbootstrap.com/docs/standard/forms/input-fields/
 function App() {
-  const [sexe, setSexe] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [addressStreet, setAdressStreet] = useState("");
-  const [addressBp, setAddressBp] = useState("")
-  const [addressCity, setAddressCity] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-
   const [formValues, setFormValues] = useState({
-    sexe: "z",
-    lastname: "",
-    firstname: "",
+    sexe: "",
+    lastName: "",
+    firstName: "",
     addressStreet: "",
     addressBp: "",
     addressCity: "",
@@ -34,29 +25,31 @@ function App() {
     skin: "",
     sperm: "",
   });
-  // const [kidney, setKidney] = useState(null);
 
-useEffect(() => {
-  let temp = '';
-  // Retire tous les espaces, puis en ajoute tous les 2 caractères
-  temp = phoneNumber.replaceAll(" ", "").replace(/(.{2})(?=.)/g, "$1 ");
-  setPhoneNumber(temp);
-}, [phoneNumber]);
+  const [errors, setErrors] = useState([]);
 
-  const isEmpty = (value) => value === '';
+  useEffect(() => {
+    // Retire tous les espaces, puis en ajoute un tous les 2 caractères
+    let temp = formValues.phoneNumber
+      .replaceAll(" ", "")
+      .replace(/(.{2})(?=.)/g, "$1 ");
+    setFormValues({ ...formValues, phoneNumber: temp });
+  }, [formValues.phoneNumber]);
+
+  const isEmpty = (value) => value === "" || value.length === 0;
 
   const verifyForm = () => {
     return !(
-      isEmpty(sexe) ||
-      isEmpty(lastname) ||
-      isEmpty(firstname) ||
-      isEmpty(addressStreet) ||
-      isEmpty(addressBp) ||
-      isEmpty(addressCity) ||
-      isEmpty(phoneNumber) ||
-      isEmpty(email)
+      isEmpty(formValues.sexe) ||
+      isEmpty(formValues.lastName) ||
+      isEmpty(formValues.firstName) ||
+      isEmpty(formValues.addressStreet) ||
+      isEmpty(formValues.addressBp) ||
+      isEmpty(formValues.addressCity) ||
+      isEmpty(formValues.phoneNumber) ||
+      isEmpty(formValues.email)
     );
-  }
+  };
 
   return (
     <BrowserRouter>
@@ -66,16 +59,6 @@ useEffect(() => {
           <Route path="/" exact component={Home} />
           <Route path="/form" exact>
             <Formulaire
-              sexe={sexe}
-              setSexe={setSexe}
-              setLastname={setLastname}
-              setFirstname={setFirstname}
-              setAdressStreet={setAdressStreet}
-              setAddressBp={setAddressBp}
-              setAddressCity={setAddressCity}
-              phoneNumber={phoneNumber}
-              setPhoneNumber={setPhoneNumber}
-              setEmail={setEmail}
               verifyForm={verifyForm}
               formValues={formValues}
               setFormValues={setFormValues}
@@ -83,15 +66,9 @@ useEffect(() => {
           </Route>
           <Route path="/resume" exact>
             <Resume
-              sexe={sexe}
-              lastname={lastname}
-              firstname={firstname}
-              addressStreet={addressStreet}
-              addressBp={addressBp}
-              addressCity={addressCity}
-              phoneNumber={phoneNumber}
-              email={email}
               verifyForm={verifyForm}
+              formValues={formValues}
+              setFormValues={setFormValues}
             />
           </Route>
           <Redirect to="/" />

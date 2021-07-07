@@ -26,7 +26,6 @@ const Coordonnees = (props) => {
           <GroupRadio
             name="sexe"
             values={datasSexe}
-            defaultChecked="sexe_none"
             labelClass="btn-forth"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
@@ -37,34 +36,38 @@ const Coordonnees = (props) => {
       <div className="row ">
         <div className="col-md-6">
           <Input
-            id="last_name"
+            id="lastName"
             label="Entrez votre nom"
-            onChange={props.setLastname}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
           />
         </div>
         <div className="col-md-6">
           <Input
-            id="first_name"
+            id="firstName"
             label="Entrez votre prénom"
-            onChange={props.setFirstname}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
           />
         </div>
       </div>
       <div className="row">
         <div className="col-md-12">
           <Input
-            id="address_street"
+            id="addressStreet"
             label="Entrez votre adresse"
-            onChange={props.setAdressStreet}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
           />
         </div>
       </div>
       <div className="row ">
         <div className="col-md-6">
           <Input
-            id="address_bp"
+            id="addressBp"
             label="Entrez votre code postal"
-            onChange={props.setAddressBp}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
             maxLength={5}
             type="number"
           />
@@ -72,20 +75,22 @@ const Coordonnees = (props) => {
         {/* https://apicarto.ign.fr/api/codes-postaux/communes/49000 */}
         <div className="col-md-6">
           <Input
-            id="address_city"
+            id="addressCity"
             label="Entrez votre ville"
-            onChange={props.setAddressCity}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
           />
         </div>
       </div>
       <div className="row ">
         <div className="col-md-6">
           <Input
-            id="phone_number"
+            id="phoneNumber"
             label="Entrez votre téléphone"
             message="Votre téléphone sera bien entendu revendu"
-            onChange={props.setPhoneNumber}
-            value={props.phoneNumber}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
+            value={props.formValues.phoneNumber}
             maxLength={14}
           />
         </div>
@@ -95,7 +100,8 @@ const Coordonnees = (props) => {
             id="email"
             label="Entrez votre courriel"
             message="Votre email aussi sera revendu au plus grand nombre"
-            onChange={props.setEmail}
+            setFormValues={props.setFormValues}
+            formValues={props.formValues}
           />
         </div>
       </div>

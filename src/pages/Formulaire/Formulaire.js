@@ -3,11 +3,8 @@ import { NavLink } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
 import Informations from "../../components/Informations/Informations";
 import Coordonnees from "../../components/Coordonnees/Coordonnees";
-import { useState } from "react";
 
 const Formulaire = (props) => {
-
-    const [errors, setErrors] = useState([])
 
     const handleSubmit = () => {
         
@@ -27,21 +24,11 @@ const Formulaire = (props) => {
         </div>
 
         <Coordonnees
-          setSexe={props.setSexe}
-          setLastname={props.setLastname}
-          setFirstname={props.setFirstname}
-          addressStreet={props.setAddressStreet}
-          setAddressBp={props.setAddressBp}
-          setAddressCity={props.setAddressCity}
-          setPhoneNumber={props.setPhoneNumber}
-          phoneNumber={props.phoneNumber}
-          setEmail={props.setEmail}
           formValues={props.formValues}
           setFormValues={props.setFormValues}
         />
 
         <Informations
-          sexe={props.sexe}
           formValues={props.formValues}
           setFormValues={props.setFormValues}
         />

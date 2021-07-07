@@ -51,7 +51,6 @@ const GroupRadio = ({
   message,
   values,
   defaultChecked,
-  onChange,
   setFormValues,
   formValues,
 }) => {
