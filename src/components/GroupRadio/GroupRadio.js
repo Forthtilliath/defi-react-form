@@ -61,13 +61,13 @@ const GroupRadio = ({
   setFormValues,
   formValues,
   setProgress,
-  error,
+  error = '',
   errors,
   setErrors,
 }) => {
   return (
     <>
-      <div className={`btn-group ${groupClass} ${error && "error"}`}>
+      <div className={`btn-group flex-wrap ${groupClass} ${error && "error"}`}>
         {values.map((value) => (
           <Radio
             key={value.id}

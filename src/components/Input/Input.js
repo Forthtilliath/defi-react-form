@@ -13,7 +13,7 @@ const Input = ({
   required,
   setFormValues,
   formValues,
-  error,
+  error = '',
   errors,
   setErrors,
 }) => {
