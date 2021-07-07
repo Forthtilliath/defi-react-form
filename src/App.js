@@ -63,7 +63,7 @@ function App() {
     email: "",
     don: "",
   });
-  const [errorDon, setErrorDon] = useState(true);
+  const [errorDon, setErrorDon] = useState(false);
 
   useEffect(() => {
     // Retire tous les espaces, puis en ajoute un tous les 2 caractères
