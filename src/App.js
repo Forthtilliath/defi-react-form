@@ -50,6 +50,8 @@ function App() {
 
   const reset = () => {
     setFormValues(initialeState);
+    setErrors({});
+    setErrorDon(false);
   };
 
   const [errors, setErrors] = useState({});
@@ -113,12 +115,12 @@ function App() {
       objErrors.email = "Merci de saisir votre email";
 
     withErrors && setErrors({ ...objErrors });
-    console.log('object')
+    console.log("object");
     return isEmpty(objErrors);
   };
 
   const verifyInformations = (withErrors) => {
-    console.log('verif');
+    console.log("verif");
     let good =
       formValues.kidney !== "kidney_none" ||
       formValues.lung !== "lung_none" ||
@@ -126,7 +128,7 @@ function App() {
       formValues.skin !== "skin_no" ||
       (formValues.sexe === "sexe_man" && formValues.sperm !== "sperm_no");
 
-    console.log('good',good);
+    console.log("good", good);
     withErrors && setErrorDon(!good);
     return good;
   };
@@ -145,7 +147,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app text-light bg-dark">
-        <Header />
+        <Header reset={reset} />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/form" exact>
@@ -156,6 +158,7 @@ function App() {
               errors={errors}
               setErrors={setErrors}
               errorDon={errorDon}
+              reset={reset}
             />
           </Route>
           <Route path="/resume" exact>

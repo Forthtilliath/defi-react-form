@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import './Header.scss'
 
-const Header = () => {
+const Header = ({reset}) => {
     return (
-      <NavLink exact to="/">
+      <NavLink exact to="/" onClick={reset}>
         <div className="title">
           <h1 className="h1">Formulaire de don</h1>
           <h2 className="h2">
