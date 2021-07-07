@@ -70,7 +70,7 @@ function App() {
     const objErrors = {};
 
     // Controle des types
-    let regexOnyLetters = /^[A-ZÀ-ÚÄ-Ü]+$/;
+    let regexOnyLetters = /^[A-ZÀ-ÚÄ-Ü- ]+$/;
     let regexPhone = /^(?:[\s.-]*\d{2}){5}$/;
     let regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
