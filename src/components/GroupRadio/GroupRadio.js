@@ -18,6 +18,7 @@ const Radio = ({
   errors,
   setErrors,
 }) => {
+  
   const handleChange = ({ target, target: { name, id } }) => {
     if (error && !isEmpty[id])
       setErrors({

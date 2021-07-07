@@ -56,6 +56,9 @@ const Coordonnees = (props) => {
             label="Entrez votre nom"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
         <div className="col-md-6">
@@ -64,6 +67,9 @@ const Coordonnees = (props) => {
             label="Entrez votre prénom"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
       </div>
@@ -74,6 +80,9 @@ const Coordonnees = (props) => {
             label="Entrez votre adresse"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
       </div>
@@ -84,6 +93,9 @@ const Coordonnees = (props) => {
             label="Entrez votre code postal"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
             maxLength={5}
             type="number"
           />
@@ -95,6 +107,9 @@ const Coordonnees = (props) => {
             label="Entrez votre ville"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
       </div>
@@ -108,6 +123,9 @@ const Coordonnees = (props) => {
             formValues={props.formValues}
             value={props.formValues.phoneNumber}
             maxLength={14}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
 
@@ -118,6 +136,9 @@ const Coordonnees = (props) => {
             message="Votre email aussi sera revendu au plus grand nombre"
             setFormValues={props.setFormValues}
             formValues={props.formValues}
+            error={props.errors.sexe}
+            errors={props.errors}
+            setErrors={props.setErrors}
           />
         </div>
       </div>

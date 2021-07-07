@@ -1,5 +1,6 @@
 $color-nofocus: #ebff77;
 $color-focus: #00b74a;
+$color-error: #ff2b2b;
 
 .form-outline {
   .form-control {
@@ -39,9 +40,10 @@ $color-focus: #00b74a;
       }
 
       /* Border bas gauche */
+      /* Retire la bordure top pour afficher le label */
       & ~ .form-notch .form-notch-middle {
         border-bottom: 0.125rem solid $color-focus;
-        border-bottom: 0.125rem solid $color-focus;
+        border-top: none;
       }
 
       /* Border de droite */
@@ -54,6 +56,38 @@ $color-focus: #00b74a;
       /* Label */
       & ~ .form-label {
         color: $color-focus;
+      }
+    }
+    &.error {
+      /* Border gauche */
+      & ~ .form-notch .form-notch-leading {
+        border-top: 0.125rem solid $color-error;
+        border-bottom: 0.125rem solid $color-error;
+        border-left: 0.125rem solid $color-error;
+      }
+
+      /* Border bas gauche */
+      & ~ .form-notch .form-notch-middle {
+        border-bottom: 0.125rem solid $color-error;
+        border-top: 0.125rem solid $color-error;
+      }
+      /* Retire la bordure pour afficher le label */
+      &:focus {
+        & ~ .form-notch .form-notch-middle {
+          border-top: none;
+        }
+      }
+
+      /* Border de droite */
+      & ~ .form-notch .form-notch-trailing {
+        border-bottom: 0.125rem solid $color-error;
+        border-right: 0.125rem solid $color-error;
+        border-top: 0.125rem solid $color-error;
+      }
+
+      /* Label */
+      & ~ .form-label {
+        color: $color-error;
       }
     }
   }
