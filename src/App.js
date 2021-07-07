@@ -13,7 +13,7 @@ function App() {
   /**
    * POUR SIMPLIFIER LES TESTS
    */
-  const in_dev = true;
+  const in_dev = false;
   const initialeState = in_dev
     ? {
         sexe: "sexe_man",
@@ -52,17 +52,7 @@ function App() {
     setFormValues(initialeState);
   };
 
-  const [errors, setErrors] = useState({
-    sexe: "",
-    lastName: "",
-    firstName: "",
-    addressStreet: "",
-    addressBp: "",
-    addressCity: "",
-    phoneNumber: "",
-    email: "",
-    don: "",
-  });
+  const [errors, setErrors] = useState({});
   const [errorDon, setErrorDon] = useState(false);
 
   useEffect(() => {
@@ -77,6 +67,34 @@ function App() {
   const verifyCoordonnees = (withErrors) => {
     const objErrors = {};
 
+    // Controle des types
+    let regexOnyLetters = /^[A-ZÀ-ÚÄ-Ü]+$/;
+    let regexPhone = /^(?:[\s.-]*\d{2}){5}$/;
+    let regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (isEmpty(formValues.lastName.toUpperCase().match(regexOnyLetters))) {
+      objErrors.lastName = "Le format du nom n'est pas correct";
+    }
+    if (isEmpty(formValues.firstName.toUpperCase().match(regexOnyLetters))) {
+      objErrors.firstName = "Le format du prénom n'est pas correct";
+    }
+    if (formValues.addressBp.length !== 5) {
+      objErrors.addressBp = "Le format du code postal n'est pas correct";
+    }
+    if (isEmpty(formValues.addressCity.toUpperCase().match(regexOnyLetters))) {
+      objErrors.addressCity = "Le format du nom de la ville n'est pas correct";
+    }
+    if (
+      isEmpty(formValues.phoneNumber.match(regexPhone)) ||
+      formValues.phoneNumber.length !== 14
+    ) {
+      objErrors.phoneNumber = "Le format du téléphone n'est pas correct";
+    }
+    if (isEmpty(formValues.email.match(regexMail))) {
+      objErrors.email = "Le format du mail n'est pas correct";
+    }
+
+    // Controle des champs vides
     if (isEmpty(formValues.sexe))
       objErrors.sexe = "Merci de sélectionner un sexe";
     if (isEmpty(formValues.lastName))
@@ -95,7 +113,7 @@ function App() {
       objErrors.email = "Merci de saisir votre email";
 
     withErrors && setErrors({ ...objErrors });
-    return objErrors !== {};
+    return isEmpty(objErrors);
   };
 
   const verifyInformations = (withErrors) => {
