@@ -115,12 +115,10 @@ function App() {
       objErrors.email = "Merci de saisir votre email";
 
     withErrors && setErrors({ ...objErrors });
-    console.log("object");
     return isEmpty(objErrors);
   };
 
   const verifyInformations = (withErrors) => {
-    console.log("verif");
     let good =
       formValues.kidney !== "kidney_none" ||
       formValues.lung !== "lung_none" ||
@@ -128,7 +126,6 @@ function App() {
       formValues.skin !== "skin_no" ||
       (formValues.sexe === "sexe_man" && formValues.sperm !== "sperm_no");
 
-    console.log("good", good);
     withErrors && setErrorDon(!good);
     return good;
   };

@@ -23,7 +23,6 @@ const Input = ({
         ...errors,
         [name]: "",
       });
-    // console.log(name,value);
     setFormValues({
       ...formValues,
       [name]: value,
