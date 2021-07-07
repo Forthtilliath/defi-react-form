@@ -11,6 +11,8 @@ const Formulaire = (props) => {
   const handleSubmit = () => {
     if (props.verifyForm(true)) {
       history.push("/resume");
+    } else {
+      window.scrollTo(0, 0);
     }
   };
 
