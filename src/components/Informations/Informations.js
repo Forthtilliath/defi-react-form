@@ -27,7 +27,11 @@ const Informations = ({ formValues, setFormValues, errorDon }) => {
 
   return (
     <>
-      <Title value="Vos informations sur le don" style={{ marginTop: 20 }} />
+      <Title
+        value="Vos informations sur le don"
+        icon="ambulance"
+        style={{ marginTop: 20 }}
+      />
 
       {/* <MDBProgress style={{ backgroundColor: "red" }}> */}
       <MDBProgress>

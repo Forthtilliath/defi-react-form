@@ -10,9 +10,7 @@ import { useEffect } from "react";
 import { isEmpty } from "./components/utils";
 
 function App() {
-  /**
-   * POUR SIMPLIFIER LES TESTS
-   */
+  /* POUR SIMPLIFIER LES TESTS */
   const in_dev = false;
   const initialeState = in_dev
     ? {

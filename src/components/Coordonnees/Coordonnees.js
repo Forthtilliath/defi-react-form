@@ -38,14 +38,17 @@ const Coordonnees = (props) => {
 
   return (
     <>
-      <Title value="Vos coordonnées" style={{ marginTop: 20 }} />
+      <Title
+        value="Vos coordonnées"
+        icon="address-card"
+        style={{ marginTop: 20 }}
+      />
       <MDBProgress>
         <MDBProgressBar
           bgColor="success"
           width={progress}
           valuemin={0}
           valuemax={100}
-          required
         />
       </MDBProgress>
       <div className="row">
@@ -61,8 +64,6 @@ const Coordonnees = (props) => {
             error={props.errors.sexe}
             errors={props.errors}
             setErrors={props.setErrors}
-            required={true}
-            nbInputs={nbInputs}
           />
         </div>
       </div>
