@@ -3,6 +3,7 @@ import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
 import datasForm from "../../datas/datasForm";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
+import { faAmbulance } from "@fortawesome/free-solid-svg-icons";
 
 const Informations = ({ formValues, setFormValues, errorDon }) => {
   const { datasKidney, datasLung, datasBasic, datasSkin, datasSperm } =
@@ -29,7 +30,7 @@ const Informations = ({ formValues, setFormValues, errorDon }) => {
     <>
       <Title
         value="Vos informations sur le don"
-        icon="ambulance"
+        icon={faAmbulance}
         style={{ marginTop: 20 }}
       />
 

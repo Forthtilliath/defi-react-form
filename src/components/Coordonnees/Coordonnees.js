@@ -4,6 +4,7 @@ import GroupRadio from "../GroupRadio/GroupRadio";
 import Title from "../Title/Title";
 import datasForm from "../../datas/datasForm";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
+import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 const Coordonnees = (props) => {
   const { datasSexe } = datasForm;
@@ -40,7 +41,7 @@ const Coordonnees = (props) => {
     <>
       <Title
         value="Vos coordonnées"
-        icon="address-card"
+        icon={faAddressCard}
         style={{ marginTop: 20 }}
       />
       <MDBProgress>

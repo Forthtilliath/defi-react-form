@@ -1,13 +1,13 @@
 import React from "react";
-import { MDBIcon } from "mdbreact";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Title = ({ value, style, icon }) => {
   return (
     <div className="row" style={style}>
       <div className="col-md-12">
         <h3 className="h3">
-          {icon && <MDBIcon icon={icon} style={{ marginRight: 10 }} />}
+          <FontAwesomeIcon icon={["fas", "home"]} />
+          {icon && <FontAwesomeIcon icon={icon} style={{ marginRight: 10 }} />}
           {value} :
         </h3>
       </div>
