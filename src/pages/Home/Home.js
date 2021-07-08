@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { MDBBtn } from "mdb-react-ui-kit";
-import './Home.scss'
+import "./Home.scss";
+
+const handleChangePage = () => {
+  window.scrollTo(0, 0);
+};
 
 const Home = () => {
   return (
@@ -12,11 +16,13 @@ const Home = () => {
           don d'une partie de vous, et vous repartirez avec une dose incroyable
           de dopamine !
         </span>
-        <span>Vous devez être majeur et résider en France pour pouvoir donner.</span>
+        <span>
+          Vous devez être majeur et résider en France pour pouvoir donner.
+        </span>
       </div>
       <img src="/assets/blood.svg" alt="don" style={{ width: "50vw" }} />
       <NavLink exact to="/form">
-        <MDBBtn>Commencer le formulaire</MDBBtn>
+        <MDBBtn onClick={handleChangePage}>Commencer le formulaire</MDBBtn>
       </NavLink>
     </div>
   );

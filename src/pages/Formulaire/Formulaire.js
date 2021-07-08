@@ -5,14 +5,12 @@ import Informations from "../../components/Informations/Informations";
 import Coordonnees from "../../components/Coordonnees/Coordonnees";
 
 const Formulaire = (props) => {
-
   const history = useHistory();
 
   const handleSubmit = () => {
+    window.scrollTo(0, 0);
     if (props.verifyForm(true)) {
       history.push("/resume");
-    } else {
-      window.scrollTo(0, 0);
     }
   };
 

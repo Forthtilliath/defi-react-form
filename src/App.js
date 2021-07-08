@@ -11,7 +11,7 @@ import { isEmpty } from "./components/utils";
 
 function App() {
   /* POUR SIMPLIFIER LES TESTS */
-  const in_dev = false;
+  const in_dev = true;
   const initialeState = in_dev
     ? {
         sexe: "sexe_man",
