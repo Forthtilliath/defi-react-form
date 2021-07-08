@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet a été réalisé pour le défi du discord Le Designer du Web.
 
-## Available Scripts
+![regles](/screenshots/regles.png)
 
-In the project directory, you can run:
+Je suis partie sur l'idée de faire un formulaire de don d'organes et de sang. Le tout était d'apporter une petite touche d'humour (noir ?) dans ce projet. Les utilisateurs remplissent un formulaire et sont renvoyés vers une page résumé.
 
-### `npm start`
+# Eléments mis en place
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Librairies et Frameworks
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Pour faire ce projet, j'ai utilisé MDB 5 React, qui est un kit ui combinant Bootstrap 5 et Material Design 2.0. Très utile pour faire les label flottant des inputs.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## App
 
-### `npm run build`
+L'application comporte un header et un footer sans rien de particulier. Le but du défi étant le formulaire, je n'ai rien fait de complexe. Un menu de navigation n'aurait pas eu grand intérêt.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Page Home
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![home](/screenshots/home.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Première page très simple, un texte, une image et un bouton pour envoyer l'utilisateur vers le formulaire.
 
-### `npm run eject`
+## Page formulaire
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![form](/screenshots/form.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Cette page est bien entendu le corps du projet. Elle se sépare en 2 parties, les coordonnées de l'utilisateur et les informations pour le don à venir.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Différents sortes d'input utilisés
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Je n'ai utilisé que 2 sortes d'input. Des boutons radio pour toutes les questions à choix unique et des input text pour tous les autres quetions.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
